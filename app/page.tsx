@@ -88,13 +88,21 @@ function HomePage() {
                     <Image
                       src={project.image}
                       alt={project.title}
-                      width={600}
-                      height={450}
-                      className="object-cover transition-transform duration-300 group-hover:scale-105"
+                      width={800}
+                      height={600}
+                      className="object-cover w-full h-full hover:scale-105 transition-transform duration-300"
+                      priority={index < 3}
+                      style={{ 
+                        transform: `translate(${project.horizontalOffset || 0}px, ${project.verticalOffset || 0}px) scale(${project.zoom ? project.zoom / 100 : 1})`,
+                        transformOrigin: 'center center'
+                      }}
                     />
                   </div>
                   <div className="p-6">
-                    <h3 className="mb-2 text-xl font-bold">{project.title}</h3>
+                    <div className="flex items-center gap-2 mb-2">
+                      <h3 className="text-xl font-bold">{project.title}</h3>
+                      {project.year && <span className="text-sm font-bold">({project.year})</span>}
+                    </div>
                     <p className="text-sm text-gray-500">{project.description}</p>
                     <div className="mt-4 flex gap-2">
                       {project.tags.map((tag, tagIndex) => (
@@ -123,10 +131,12 @@ function HomePage() {
           </h2>
           <p className="mb-12 text-xl text-gray-600 text-center">Bringing ideas to life through digital innovation</p>
           <ExpandableImageSection
+            key={0}
             imageSrc="/placeholder.svg?height=400&width=600&text=3D+Concepting"
             imageAlt="3D Concepting Process"
             title="From Sketch to Screen"
             description="Our 3D concepting process allows us to rapidly prototype and visualize new footwear designs. Using cutting-edge 3D modeling software, we explore various shapes, materials, and color combinations before moving to physical prototypes. This approach saves time and resources while allowing for greater creative exploration."
+            project={projects[0]}
           />
         </div>
       </section>
@@ -140,10 +150,12 @@ function HomePage() {
           </h2>
           <p className="mb-12 text-xl text-gray-600 text-center">Transforming concepts into tangible products</p>
           <ExpandableImageSection
+            key={1}
             imageSrc="/placeholder.svg?height=400&width=600&text=Development"
             imageAlt="Footwear Development Process"
             title="Crafting Excellence"
             description="Our development process is where innovative designs become tangible products. We work closely with manufacturers to ensure that every detail of our 3D concepts is faithfully reproduced in the final product. This stage involves material selection, structural engineering, and rigorous testing to guarantee that our footwear meets the highest standards of quality and performance."
+            project={projects[1]}
           />
         </div>
       </section>
@@ -187,7 +199,7 @@ function HomePage() {
   )
 }
 
-function ExpandableImageSection({ imageSrc, imageAlt, title, description }) {
+function ExpandableImageSection({ imageSrc, imageAlt, title, description, project }) {
   const [isExpanded, setIsExpanded] = useState(false);
 
   return (
@@ -204,7 +216,12 @@ function ExpandableImageSection({ imageSrc, imageAlt, title, description }) {
             width={600}
             height={400}
             className="w-full h-full object-cover transition-transform duration-500 ease-in-out"
-            style={{ transform: isExpanded ? 'scale(1.05)' : 'scale(1)' }}
+            style={{ 
+              transform: isExpanded 
+                ? `translate(${project.horizontalOffset || 0}px, ${project.verticalOffset || 0}px) scale(${1.05 * (project.zoom ? project.zoom / 100 : 1)})` 
+                : `translate(${project.horizontalOffset || 0}px, ${project.verticalOffset || 0}px) scale(${project.zoom ? project.zoom / 100 : 1})`,
+              transformOrigin: 'center center'
+            }}
           />
         </div>
         <div className="md:w-1/2 p-6 md:p-8 flex flex-col justify-center">
@@ -218,45 +235,69 @@ function ExpandableImageSection({ imageSrc, imageAlt, title, description }) {
 
 const projects = [
   {
-    title: "Urban Runner Collection",
-    slug: "urban-runner-collection",
-    description: "A modern take on classic running silhouettes, designed for both performance and style.",
-    image: "/placeholder.svg?height=450&width=600",
+    title: "IDA Sports",
+    slug: "IDA Sports Football cleat",
+    description: "Anatomically correct women's football cleats designed for speed and agility.",
+    year: "2018",
+    image: "/ida_boots_coverimg.png",
+    zoom: 100,
+    horizontalOffset: 0,
+    verticalOffset: 0,
     tags: ["Athletic", "Innovation"]
   },
   {
-    title: "Eco-Conscious Series",
-    slug: "eco-conscious-series",
-    description: "Sustainable footwear crafted from recycled materials without compromising on design.",
-    image: "/placeholder.svg?height=450&width=600",
+    title: "Foundation Trainer",
+    slug: "Foundation Trainer",
+    description: "Innovative training footwear for powerlifters and athletes designed for Australian brand Ryderwear",
+    year: "2024",
+    image: "/foundation_cover.png",
+    zoom: 150,
+    horizontalOffset: 20,
+    verticalOffset: 60,
     tags: ["Sustainable", "Lifestyle"]
   },
   {
-    title: "Limited Edition Collab",
-    slug: "limited-edition-collab",
-    description: "Exclusive collaboration bringing together streetwear culture and premium craftsmanship.",
-    image: "/placeholder.svg?height=450&width=600",
+    title: "Wilson 'Intrigue' Signature",
+    slug: "Wilson 'Intrigue' Signature",
+    description: "3D visualtion and development for Wilson's Marta Kostyuk signature shoe.",
+    year: "2023",
+    image: "/Wilson_cover2.jpg",
+    zoom: 100,
+    horizontalOffset: 0,
+    verticalOffset: 0,
     tags: ["Collaboration", "Limited"]
   },
   {
     title: "Performance Elite",
     slug: "performance-elite",
     description: "Professional-grade athletic footwear engineered for maximum performance and comfort.",
+    year: "",
     image: "/placeholder.svg?height=450&width=600",
+    zoom: 100,
+    horizontalOffset: 0,
+    verticalOffset: 0,
     tags: ["Professional", "Sport"]
   },
   {
     title: "Heritage Collection",
     slug: "heritage-collection",
     description: "Reimagining classic silhouettes with contemporary materials and techniques.",
+    year: "",
     image: "/placeholder.svg?height=450&width=600",
+    zoom: 100,
+    horizontalOffset: 0,
+    verticalOffset: 0,
     tags: ["Classic", "Premium"]
   },
   {
     title: "Future Tech Series",
     slug: "future-tech-series",
     description: "Experimental designs pushing the boundaries of footwear technology and style.",
+    year: "",
     image: "/placeholder.svg?height=450&width=600",
+    zoom: 100,
+    horizontalOffset: 0,
+    verticalOffset: 0,
     tags: ["Innovation", "Tech"]
   }
 ]
