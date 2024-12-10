@@ -1,11 +1,12 @@
 'use client'
+
 import { Button } from "@/components/ui/button"
 import Image from "next/image"
 import Link from "next/link"
 import { ChevronDown } from 'lucide-react'
 import { useState, useEffect } from 'react'
 
-export default function Page() {
+function HomePage() {
   const [isClient, setIsClient] = useState(false)
 
   useEffect(() => {
@@ -16,7 +17,7 @@ export default function Page() {
     <div className="min-h-screen bg-gray-50">
       {/* Header */}
       <header className="sticky top-0 z-50 w-full border-b bg-white/80 backdrop-blur-sm">
-        <div className="container flex h-16 items-center justify-between">
+        <div className="container mx-auto max-w-7xl px-4 flex h-16 items-center justify-between">
           <Link className="flex items-center space-x-2" href="/">
             <div className="size-8 rounded-lg bg-gradient-to-br from-orange-400 to-orange-600" />
             <span className="text-xl font-bold">Portfolio</span>
@@ -37,15 +38,15 @@ export default function Page() {
 
       {/* Hero */}
       <section className="flex items-center justify-center min-h-screen bg-gray-50">
-        <div className="container">
-          <div className="flex flex-col items-center text-center">
-            <div className="space-y-4">
-              <h1 className="text-4xl font-bold tracking-tighter sm:text-5xl md:text-6xl lg:text-7xl">
-                Footwear Design
+        <div className="container mx-auto max-w-7xl px-4">
+          <div className="flex flex-col items-center justify-center text-center">
+            <div className="space-y-6 w-full max-w-3xl mx-auto">
+              <h1 className="text-4xl font-bold tracking-tighter sm:text-5xl md:text-6xl lg:text-7xl text-center">
+                Will Makarainen
                 <span className="text-orange-600">.</span>
               </h1>
               <p className="mx-auto max-w-[700px] text-gray-500 text-lg md:text-xl lg:text-2xl">
-                Innovative footwear design portfolio showcasing the intersection of style, comfort, and technology.
+                3d/footwear designer
               </p>
               <div className="pt-8">
                 {isClient && (
@@ -71,54 +72,56 @@ export default function Page() {
       </section>
 
       {/* Projects Grid */}
-      <section id="projects" className="container py-12 md:py-24">
-        <h2 className="mb-12 text-2xl font-bold tracking-tighter sm:text-3xl">
-          Featured Projects
-          <span className="text-orange-600">.</span>
-        </h2>
-        <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
-          {projects.map((project, index) => (
-            <Link href={`/${project.slug}`} key={index} className="block">
-              <div
-                className="group relative overflow-hidden rounded-lg border bg-white shadow-sm transition-all hover:shadow-lg"
-              >
-                <div className="aspect-[4/3] overflow-hidden">
-                  <Image
-                    src={project.image}
-                    alt={project.title}
-                    width={600}
-                    height={450}
-                    className="object-cover transition-transform duration-300 group-hover:scale-105"
-                  />
-                </div>
-                <div className="p-6">
-                  <h3 className="mb-2 text-xl font-bold">{project.title}</h3>
-                  <p className="text-sm text-gray-500">{project.description}</p>
-                  <div className="mt-4 flex gap-2">
-                    {project.tags.map((tag, tagIndex) => (
-                      <span
-                        key={tagIndex}
-                        className="rounded-full bg-orange-100 px-3 py-1 text-xs font-medium text-orange-600"
-                      >
-                        {tag}
-                      </span>
-                    ))}
+      <section id="projects" className="py-12 md:py-24">
+        <div className="container mx-auto max-w-7xl px-4">
+          <h2 className="mb-12 text-2xl font-bold tracking-tighter sm:text-3xl text-center">
+            Featured Projects
+            <span className="text-orange-600">.</span>
+          </h2>
+          <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
+            {projects.map((project, index) => (
+              <Link href={`/${project.slug}`} key={index} className="block">
+                <div
+                  className="group relative overflow-hidden rounded-lg border bg-white shadow-sm transition-all hover:shadow-lg"
+                >
+                  <div className="aspect-[4/3] overflow-hidden">
+                    <Image
+                      src={project.image}
+                      alt={project.title}
+                      width={600}
+                      height={450}
+                      className="object-cover transition-transform duration-300 group-hover:scale-105"
+                    />
+                  </div>
+                  <div className="p-6">
+                    <h3 className="mb-2 text-xl font-bold">{project.title}</h3>
+                    <p className="text-sm text-gray-500">{project.description}</p>
+                    <div className="mt-4 flex gap-2">
+                      {project.tags.map((tag, tagIndex) => (
+                        <span
+                          key={tagIndex}
+                          className="rounded-full bg-orange-100 px-3 py-1 text-xs font-medium text-orange-600"
+                        >
+                          {tag}
+                        </span>
+                      ))}
+                    </div>
                   </div>
                 </div>
-              </div>
-            </Link>
-          ))}
+              </Link>
+            ))}
+          </div>
         </div>
       </section>
 
       {/* 3D Concepting */}
       <section className="bg-gray-100 py-24">
-        <div className="container">
-          <h2 className="mb-4 text-3xl font-bold tracking-tighter">
+        <div className="container mx-auto max-w-7xl px-4">
+          <h2 className="mb-4 text-3xl font-bold tracking-tighter text-center">
             3D Concepting
             <span className="text-orange-600">.</span>
           </h2>
-          <p className="mb-12 text-xl text-gray-600">Bringing ideas to life through digital innovation</p>
+          <p className="mb-12 text-xl text-gray-600 text-center">Bringing ideas to life through digital innovation</p>
           <ExpandableImageSection
             imageSrc="/placeholder.svg?height=400&width=600&text=3D+Concepting"
             imageAlt="3D Concepting Process"
@@ -130,12 +133,12 @@ export default function Page() {
 
       {/* Development */}
       <section className="py-24">
-        <div className="container">
-          <h2 className="mb-4 text-3xl font-bold tracking-tighter">
+        <div className="container mx-auto max-w-7xl px-4">
+          <h2 className="mb-4 text-3xl font-bold tracking-tighter text-center">
             Development
             <span className="text-orange-600">.</span>
           </h2>
-          <p className="mb-12 text-xl text-gray-600">Transforming concepts into tangible products</p>
+          <p className="mb-12 text-xl text-gray-600 text-center">Transforming concepts into tangible products</p>
           <ExpandableImageSection
             imageSrc="/placeholder.svg?height=400&width=600&text=Development"
             imageAlt="Footwear Development Process"
@@ -147,7 +150,7 @@ export default function Page() {
 
       {/* Contact */}
       <section id="contact" className="border-t bg-white">
-        <div className="container py-24 sm:py-32">
+        <div className="container mx-auto max-w-7xl px-4 py-24 sm:py-32">
           <div className="flex flex-col items-center space-y-4 text-center">
             <h2 className="text-3xl font-bold tracking-tighter sm:text-4xl">
               Let's work together
@@ -165,8 +168,8 @@ export default function Page() {
 
       {/* Footer */}
       <footer className="border-t bg-white">
-        <div className="container flex h-16 items-center justify-between">
-          <p className="text-sm text-gray-500">© 2024. All rights reserved.</p>
+        <div className="container mx-auto max-w-7xl px-4 flex h-16 items-center justify-between">
+          <p className="text-sm text-gray-500"> 2024. All rights reserved.</p>
           <div className="flex gap-6">
             <Link className="text-sm text-gray-500 hover:text-orange-600" href="#">
               Twitter
@@ -258,3 +261,4 @@ const projects = [
   }
 ]
 
+export default HomePage
