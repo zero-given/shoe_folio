@@ -236,7 +236,7 @@ function ExpandableImageSection({ imageSrc, imageAlt, title, description, projec
 const projects = [
   {
     title: "IDA Sports",
-    slug: "IDA Sports Football cleat",
+    slug: "urban-runner-collection",
     description: "Anatomically correct women's football cleats designed for speed and agility.",
     year: "2018",
     image: "/ida_boots_coverimg.png",
@@ -247,7 +247,7 @@ const projects = [
   },
   {
     title: "Foundation Trainer",
-    slug: "Foundation Trainer",
+    slug: "foundation-trainer",
     description: "Innovative training footwear for powerlifters and athletes designed for Australian brand Ryderwear",
     year: "2024",
     image: "/foundation_cover.png",
@@ -258,10 +258,10 @@ const projects = [
   },
   {
     title: "Wilson 'Intrigue' Signature",
-    slug: "Wilson 'Intrigue' Signature",
+    slug: "wilson-intrigue",
     description: "3D visualtion and development for Wilson's Marta Kostyuk signature shoe.",
     year: "2023",
-    image: "/Wilson_cover2.jpg",
+    image: "/wilson_cover2.jpg",
     zoom: 100,
     horizontalOffset: 0,
     verticalOffset: 0,
