@@ -7,7 +7,7 @@ export default function UrbanRunnerCollection() {
     <div className="min-h-screen bg-gray-50">
       {/* Header */}
       <header className="sticky top-0 z-50 w-full border-b bg-white/80 backdrop-blur-sm">
-        <div className="container flex h-16 items-center justify-between">
+        <div className="container mx-auto max-w-7xl px-4 flex h-16 items-center justify-between">
           <Link className="flex items-center space-x-2" href="/">
             <div className="size-8 rounded-lg bg-gradient-to-br from-orange-400 to-orange-600" />
             <span className="text-xl font-bold">Portfolio</span>
@@ -28,7 +28,7 @@ export default function UrbanRunnerCollection() {
 
       {/* Project Hero */}
       <section className="relative">
-        <div className="container py-24 sm:py-32">
+        <div className="container mx-auto max-w-7xl px-4 py-24 sm:py-32">
           <div className="grid gap-10 md:grid-cols-2">
             <div className="space-y-4">
               <h1 className="text-4xl font-bold tracking-tighter sm:text-5xl lg:text-6xl">
@@ -63,7 +63,7 @@ export default function UrbanRunnerCollection() {
 
       {/* Project Overview */}
       <section className="py-24">
-        <div className="container">
+        <div className="container mx-auto max-w-7xl px-4">
           <h2 className="mb-12 text-3xl font-bold">Project Overview</h2>
           <div className="grid gap-8 md:grid-cols-2">
             <p className="text-gray-500 text-lg">
@@ -82,7 +82,7 @@ export default function UrbanRunnerCollection() {
 
       {/* Key Features */}
       <section className="bg-gray-100 py-24">
-        <div className="container">
+        <div className="container mx-auto max-w-7xl px-4">
           <h2 className="mb-12 text-3xl font-bold">Key Features</h2>
           <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
             {features.map((feature, index) => (
@@ -97,7 +97,7 @@ export default function UrbanRunnerCollection() {
 
       {/* Design Process */}
       <section className="py-24">
-        <div className="container">
+        <div className="container mx-auto max-w-7xl px-4">
           <h2 className="mb-12 text-3xl font-bold">Design Process</h2>
           <div className="grid gap-12 md:grid-cols-2">
             <div className="space-y-6">
@@ -135,7 +135,7 @@ export default function UrbanRunnerCollection() {
 
       {/* Materials Showcase */}
       <section className="bg-gray-100 py-24">
-        <div className="container">
+        <div className="container mx-auto max-w-7xl px-4">
           <h2 className="mb-12 text-3xl font-bold">Materials Showcase</h2>
           <div className="grid gap-12 md:grid-cols-3">
             <div className="md:col-span-2">
@@ -169,7 +169,7 @@ export default function UrbanRunnerCollection() {
 
       {/* Color Variants */}
       <section className="py-24">
-        <div className="container">
+        <div className="container mx-auto max-w-7xl px-4">
           <h2 className="mb-12 text-3xl font-bold">Color Variants</h2>
           <div className="grid gap-8 sm:grid-cols-2 md:grid-cols-3">
             {['Midnight Black', 'Urban Gray', 'Neon Pulse', 'Arctic Blue', 'Sunset Orange', 'Forest Green'].map((color, index) => (
@@ -193,7 +193,7 @@ export default function UrbanRunnerCollection() {
 
       {/* Performance Metrics */}
       <section className="bg-gray-100 py-24">
-        <div className="container">
+        <div className="container mx-auto max-w-7xl px-4">
           <h2 className="mb-12 text-3xl font-bold">Performance Metrics</h2>
           <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-4">
             {performanceMetrics.map((metric, index) => (
@@ -209,7 +209,7 @@ export default function UrbanRunnerCollection() {
 
       {/* Customer Testimonials */}
       <section className="py-24">
-        <div className="container">
+        <div className="container mx-auto max-w-7xl px-4">
           <h2 className="mb-12 text-3xl font-bold">What Our Customers Say</h2>
           <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
             {testimonials.map((testimonial, index) => (
@@ -236,7 +236,7 @@ export default function UrbanRunnerCollection() {
 
       {/* Sustainability Efforts */}
       <section className="bg-gray-100 py-24">
-        <div className="container">
+        <div className="container mx-auto max-w-7xl px-4">
           <h2 className="mb-12 text-3xl font-bold">Our Sustainability Efforts</h2>
           <div className="grid gap-8 md:grid-cols-2">
             <div className="space-y-6">
@@ -266,7 +266,7 @@ export default function UrbanRunnerCollection() {
 
       {/* Call to Action */}
       <section className="bg-orange-600 py-24 text-white">
-        <div className="container text-center">
+        <div className="container mx-auto max-w-7xl px-4 text-center">
           <h2 className="mb-6 text-4xl font-bold">Ready to Experience Urban Runner?</h2>
           <p className="mb-10 text-xl">Join the revolution in urban footwear technology.</p>
           <Button className="bg-white text-orange-600 hover:bg-gray-100 text-lg py-6 px-10">
@@ -277,7 +277,7 @@ export default function UrbanRunnerCollection() {
 
       {/* Footer */}
       <footer className="border-t bg-white py-12">
-        <div className="container">
+        <div className="container mx-auto max-w-7xl px-4">
           <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-4">
             <div>
               <h3 className="mb-4 text-lg font-semibold">About Us</h3>
@@ -317,7 +317,7 @@ export default function UrbanRunnerCollection() {
             </div>
           </div>
           <div className="mt-12 border-t pt-8 text-center">
-            <p className="text-sm text-gray-500">© 2024 Urban Runner. All rights reserved.</p>
+            <p className="text-sm text-gray-500"> 2024 Urban Runner. All rights reserved.</p>
           </div>
         </div>
       </footer>
@@ -392,4 +392,3 @@ const performanceMetrics = [
     description: "Airflow rating"
   }
 ]
-
